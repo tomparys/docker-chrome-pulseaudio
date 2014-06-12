@@ -24,7 +24,10 @@ RUN apt-get install -fy						# Automatically detect and install dependencies
 
 
 # Create a user
-RUN useradd -m -d /home/docker -p `perl -e 'print crypt('"docker"', "aa"),"\n"'` docker
+RUN adduser docker
+
+# Set user password
+RUN echo "docker:docker" | chpasswd
 
 # Create OpenSSH privilege separation directory, enable X11Forwarding
 RUN mkdir -p /var/run/sshd
