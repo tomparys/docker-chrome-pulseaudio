@@ -51,3 +51,6 @@ EXPOSE 22
 
 # Start SSH
 ENTRYPOINT ["/usr/sbin/sshd",  "-D"]
+
+# Do not pass default command to sshd
+CMD []
