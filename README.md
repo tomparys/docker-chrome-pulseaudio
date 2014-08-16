@@ -89,3 +89,4 @@ There are a couple of reasons you might want to restrict Skype's access to your 
 * It is proprietary Microsoft software
 * The skype binary is disguised against decompiling, so nobody is (still) able to reproduce what it really does.
 * It produces encrypted traffic even when you are not actively using Skype.
+* It allow you to drop any 32bit libs on your 64bit system, if you don't want/have a multilib system: in the good old days you had to prepare a 32bit chroot for that, now there's docker.
