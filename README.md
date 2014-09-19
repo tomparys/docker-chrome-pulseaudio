@@ -60,7 +60,7 @@ In case you do not want to download the prepared image, you can built the image 
    
           IdentityFile /path/to/your/ssh/key
 
-8. Run the container and forward the appropriate port
+8. Run the container and forward the appropriate port and current time zone
 
         sudo docker run -d -p 55555:22 -v /etc/localtime:/etc/localtime:ro skype
 
