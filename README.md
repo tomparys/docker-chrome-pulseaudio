@@ -62,7 +62,7 @@ In case you do not want to download the prepared image, you can built the image 
 
 8. Run the container and forward the appropriate port
 
-        sudo docker run -d -p 55555:22 skype
+        sudo docker run -d -p 55555:22 -v /etc/localtime:/etc/localtime:ro skype
 
 9. (Optional) Copy an SSH public key
 
