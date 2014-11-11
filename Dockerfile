@@ -9,6 +9,9 @@ RUN dpkg --add-architecture i386
 
 # Make sure the repository information is up to date
 RUN apt-get update
+RUN apt-get dist-upgrade -y
+RUN apt-get autoremove -y
+RUN apt-get autoclean
 
 
 # Install PulseAudio for i386 (64bit version does not work with Skype)
