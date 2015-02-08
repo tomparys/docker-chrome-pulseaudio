@@ -64,7 +64,7 @@ In case you do not want to download the prepared image, you can built the image 
 
         sudo docker run -d -p 55555:22 -v /etc/localtime:/etc/localtime:ro skype
 
-(Optional) If you want to use webcam in Skype, you need to forward video device to the container
+    (Optional) If you want to use webcam in Skype, you need to forward video device to the container
 
         sudo docker run -d -p 55555:22 --privileged -v /dev/video0:/dev/video0 -v /etc/localtime:/etc/localtime:ro skype
 
