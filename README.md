@@ -89,3 +89,24 @@ There are a couple of reasons you might want to restrict Skype's access to your 
 * It is proprietary Microsoft software
 * The skype binary is disguised against decompiling, so nobody is (still) able to reproduce what it really does.
 * It produces encrypted traffic even when you are not actively using Skype.
+
+How make Skype settings persistent?
+-----------------------------------
+In order to make Skype retain settings, docker container needs to have a volume attached.
+
+* Create a directory which will be attached to a container, eg. ```mkdir ~/.docker-skype```.
+* Run docker container with extra parameter for attaching volume ```sudo docker run -d -v ~/.docker-skype:/home/docker -p 55555:22 tomparys/skype```
+* You now have persistent Skype docker container.
+* If you want your HOME dir to be attached to container then you dont need creating anything just link your whole HOME dir to a container. Benefit is that you will be able to send all files in your HOME.
+
+How to view received files?
+---------------------------
+Access the dir which is created in persistence answer and all received files are stored there.
+
+How to use webcam?
+------------------
+There is pull request for this but original maintainer does not respond for quite some time. PR is issued by https://github.com/giavjeko/docker-skype-pulseaudio .
+
+* Video device needs to be mounted on docker container, ```/dev/video0``` is owned by root ```chmod 777``` (not so smart but fast solution for testing) the file will allow docker user to use webcam.
+
+* Just start docker with sudo docker run -d --privileged -v ~/.docker-skype:/home/docker -v /dev/video0:/dev/video0 -p 55555:22 tomparys/skype
