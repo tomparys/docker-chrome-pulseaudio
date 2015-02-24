@@ -42,7 +42,7 @@ RUN echo "Europe/Prague" > /etc/timezone
 
 # Set up the launch wrapper - sets up PulseAudio to work correctly
 RUN echo 'export PULSE_SERVER="tcp:localhost:64713"' >> /usr/local/bin/skype-pulseaudio
-RUN echo 'env PULSE_LATENCY_MSEC=60e LD_PRELOAD=/usr/lib/i386-linux-gnu/libv4l/v4l2convert.so skype' >> /usr/local/bin/skype-pulseaudio
+RUN echo 'env PULSE_LATENCY_MSEC=60 LD_PRELOAD=/usr/lib/i386-linux-gnu/libv4l/v4l2convert.so skype' >> /usr/local/bin/skype-pulseaudio
 RUN chmod 755 /usr/local/bin/skype-pulseaudio
 
 
