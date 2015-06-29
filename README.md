@@ -15,9 +15,16 @@ Building Instructions
 
 In case you do not want to download the prepared image, you can built the image yourself using these following instructions.
 
-1. Install [PulseAudio Preferences](http://freedesktop.org/software/pulseaudio/paprefs/). Debian/Ubuntu users can do this:
+1. Install [PulseAudio Preferences](http://freedesktop.org/software/pulseaudio/paprefs/). 
+
+Debian/Ubuntu users can do this:
 
         sudo apt-get install paprefs
+
+Fedora/Redhat users this:
+
+       sudo dnf install pulseaudio-module-zeroconf
+       sudo dnf install paprefs
 
 2. Launch PulseAudio Preferences, go to the *"Network Server"* tab, and check the *"Enable network access to local sound devices"* and *"Don't require authentication"* checkboxes
 
