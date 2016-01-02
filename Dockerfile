@@ -15,7 +15,7 @@ RUN apt-get update
 RUN apt-get install -y libpulse0:i386 pulseaudio:i386
 
 # We need ssh to access the docker container, wget to download skype
-RUN apt-get install -y openssh-server wget 
+RUN apt-get install -y openssh-server wget
 
 # Install Skype
 RUN wget http://download.skype.com/linux/skype-debian_4.3.0.37-1_i386.deb -O /usr/src/skype.deb
@@ -23,8 +23,11 @@ RUN dpkg -i /usr/src/skype.deb || true
 RUN apt-get install -fy						# Automatically detect and install dependencies
 
 
-# Create user "docker" and set the password to "docker"
-RUN useradd -m -d /home/docker docker
+# Create user "docker", set the password to "docker",
+# change the proprietary of $HOME and append the new user to audio and video groups
+RUN useradd -m -d /home/docker docker \
+    && chown -R docker:docker $HOME \
+    && usermod -a -G audio,video docker
 RUN echo "docker:docker" | chpasswd
 
 # Create OpenSSH privilege separation directory, enable X11Forwarding
