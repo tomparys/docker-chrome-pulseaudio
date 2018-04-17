@@ -89,3 +89,4 @@ There are a couple of reasons you might want to restrict Skype's access to your 
 * It is proprietary Microsoft software
 * The skype binary is disguised against decompiling, so nobody is (still) able to reproduce what it really does.
 * It produces encrypted traffic even when you are not actively using Skype.
+* Skype vulnerability count and status is unclear at best ([indicative incident](http://www.zdnet.com/article/skype-cannot-fix-security-bug-without-a-massive-code-rewrite/)) 
