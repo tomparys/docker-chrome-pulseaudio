@@ -42,7 +42,7 @@ RUN echo "Europe/Prague" > /etc/timezone
 
 # Set up the launch wrapper - sets up PulseAudio to work correctly
 RUN echo 'export PULSE_SERVER="tcp:localhost:64713"' >> /usr/local/bin/skype-pulseaudio
-RUN echo 'PULSE_LATENCY_MSEC=60 skype' >> /usr/local/bin/skype-pulseaudio
+RUN echo 'PULSE_LATENCY_MSEC=60 skype "$@"' >> /usr/local/bin/skype-pulseaudio
 RUN chmod 755 /usr/local/bin/skype-pulseaudio
 
 
@@ -51,3 +51,6 @@ EXPOSE 22
 
 # Start SSH
 ENTRYPOINT ["/usr/sbin/sshd",  "-D"]
+
+# Do not pass default command to sshd
+CMD []
