@@ -63,6 +63,10 @@ In case you do not want to download the prepared image, you can built the image 
 8. Run the container and forward the appropriate port
 
         sudo docker run -d -p 55555:22 skype
+        
+    (Optional) If you want to use webcam in Skype, you need to forward video device to the container
+    
+        sudo docker run -d -p 55555:22 --privileged -v /dev/video0:/dev/video0 skype
 
 9. (Optional) Copy an SSH public key
 
