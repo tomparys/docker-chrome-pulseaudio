@@ -60,9 +60,13 @@ In case you do not want to download the prepared image, you can built the image 
    
           IdentityFile /path/to/your/ssh/key
 
-8. Run the container and forward the appropriate port
+8. Run the container and forward the appropriate port and current time zone
 
-        sudo docker run -d -p 55555:22 skype
+        sudo docker run -d -p 55555:22 -v /etc/localtime:/etc/localtime:ro skype
+
+    (Optional) If you want to use webcam in Skype, you need to forward video device to the container
+
+        sudo docker run -d -p 55555:22 --privileged -v /dev/video0:/dev/video0 -v /etc/localtime:/etc/localtime:ro skype
 
 9. (Optional) Copy an SSH public key
 
